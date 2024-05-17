@@ -1,13 +1,23 @@
 // Make a function to create 16x16 grid - This is the default size.
 
-function createGrid() {
-    const container = document.querySelector('#container');
-    let gridSize = prompt('Enter a number between 1 and 100');
-    for (i = 16; i > gridSize; i++);
-    const newDivRows = document.createElement('div');
-    for (j = 16; j > gridSize; j++);
-};
+const changeSizeBtn = document.querySelector('#grid-size-btn');
+const container = document.querySelector('#container');
+let size = 16;
 
+// function creates grid with prompted size.
 
-const gridSizeChange = document.getElementById('grid-size-btn');
-gridSizeChange.addEventListener('click', createGrid);
+function createGrid(size) {
+    for (let i = 0; i < size; i++) {
+        const row = document.createElement('div');
+        row.classList.add('row');
+        container.appendChild(row);
+
+    for (let j = 0; j < size; j++) {
+        const column = document.createElement('div');
+        column.classList.add('column');
+        container.appendChild(column); 
+        }
+    }
+}
+
+createGrid(size);
