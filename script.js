@@ -7,16 +7,19 @@ let size = 16;
 // function creates grid with prompted size.
 
 function createGrid(size) {
+    container.innerHTML = ''; // Clear previous grid
+
     for (let i = 0; i < size; i++) {
         const row = document.createElement('div');
         row.classList.add('row');
-        container.appendChild(row);
 
-    for (let j = 0; j < size; j++) {
-        const column = document.createElement('div');
-        column.classList.add('column');
-        container.appendChild(column); 
+        for (let j = 0; j < size; j++) {
+            const divBox = document.createElement('div');
+            divBox.classList.add('box');
+            row.appendChild(divBox);
         }
+
+        container.appendChild(row);
     }
 }
 
