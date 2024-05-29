@@ -16,7 +16,7 @@ function randomColor() {
     return newColor;
 }
 
-// Function - 2 loops
+// Function - 2 loops - one for row of divs - one for divs inside rows to create cell vertically.
 function createGrid(size) {
     container.innerHTML = ''; // Apparently this clears the previous grid.
     for (let i = 0; i < size; i++) {
@@ -29,37 +29,57 @@ function createGrid(size) {
         column.classList.add('column');
         row.appendChild(column); // Appends column divs to each row div.
 
-    function rainbow() {
-        column.style.backgroundColor = randomColor();
+// If/else for color mode - button function added at bottom - default is black when page is loaded.
+        column.addEventListener('mouseover', () => {
+        if (colorMode === 'black') {
+            column.style.backgroundColor = 'black';
+        } else if (colorMode === 'rainbow') {
+            column.style.backgroundColor = randomColor();
+        } else if (colorMode === 'white') {
+            column.style.backgroundColor = 'white';
+        }
+     });
     }
-
-    column.addEventListener('mouseover', rainbow);
-    }
-    }
+    }   
 }
-
+// Function to change size of grid asking for prompt.
 function changeSize() {
-    const gridSize = prompt('1-100');
+    const gridSize = prompt('Enter a number between 1 and 100 for grid size. e.g "6" would be 6x6');
     if (gridSize > 100 || gridSize < 1) {
-        alert('Hey Dumbass');
+        alert('Hey dumbass, come on');
     } else {
         createGrid(gridSize);
     }
 }
-
+// function to reset grid to original state.
 function resetGrid() {
     createGrid(16);
 }
 
-
+// Call function to create initial 16x16 grid.
 createGrid(size);
 
-const blackButton = document.getElementById('black-btn');
-blackButton.addEventListener('click', blackInk);
+//Set colorMode to black when window is loaded initially.
+window.onload = (colorMode = 'black');
 
+// Set colorMode to black when black-btn is clicked.
+document.getElementById('black-btn').addEventListener('click', () => {
+    colorMode = 'black';
+});
+
+//Set colorMode to rainbow when rainbow-btn is clicked.
+document.getElementById('rainbow-btn').addEventListener('click', () => {
+    colorMode = 'rainbow';
+});
+//Set colorMode to white when eraser-btn is clicked.
+document.getElementById('eraser-btn').addEventListener('click', () => {
+    colorMode = 'white';
+})
+//Calls changeSize function when btn is clicked.
 const gridChange = document.getElementById('grid-size-btn');
 gridChange.addEventListener('click', changeSize);
 
+// Calls resetGrid when btn is clicked.
 const resetButton = document.getElementById('reset-btn');
 resetButton.addEventListener('click', resetGrid);
 });

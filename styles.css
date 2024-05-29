@@ -6,16 +6,24 @@ html, body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: beige;
+    background-color: lightpink;
+}
+
+h1{
+    color: white;
+    border: solid rgb(255, 255, 255) 4px;
+    padding: 20px;
+    font-family: sans-serif;
 }
 
 #container {
     display: flex;
     flex-direction: column;
-    width: 800px;
+    width: 650px;
     height: 800px;
     border: 1px solid black;
-    margin-top: 20px;
+    margin-top: 10px;
+    background-color: white;
 }
 
 .row {
@@ -26,4 +34,59 @@ html, body {
 .column {
     flex: 1;
     border: solid black;
+}
+
+.button-bar {
+    height: 100px;
+    width: auto;
+    display: flex;
+    justify-content: space-around;
+    gap: 16px;
+    flex: 1;
+
+}
+
+/* Button from CSS scan */
+.btn {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  font-size: 26px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.btn {
+  background-color: #fff;
+}
+
+.btn {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .btn {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
+footer {
+    font-family: sans-serif;
+    color: white;
+    margin: 20px;
+    font-weight: 800;
+    border: solid white;
+    padding: 16px;
 }
