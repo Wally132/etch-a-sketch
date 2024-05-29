@@ -13,11 +13,8 @@ function randomColor() {
     const g = Math.floor(Math.random() * 255);
     const b = Math.floor(Math.random() * 255);
     const newColor = 'rgb(' + r + "," + g + "," + b +')';
-    console.log(newColor);
+    return newColor;
 }
-
-randomColor();
-
 
 // Function - 2 loops
 function createGrid(size) {
@@ -32,13 +29,11 @@ function createGrid(size) {
         column.classList.add('column');
         row.appendChild(column); // Appends column divs to each row div.
 
-    function blackInk() {
-        column.style.backgroundColor = '#000000';
+    function rainbow() {
+        column.style.backgroundColor = randomColor();
     }
 
-   
-
-    column.addEventListener('mouseover', blackInk);
+    column.addEventListener('mouseover', rainbow);
     }
     }
 }
@@ -58,6 +53,9 @@ function resetGrid() {
 
 
 createGrid(size);
+
+const blackButton = document.getElementById('black-btn');
+blackButton.addEventListener('click', blackInk);
 
 const gridChange = document.getElementById('grid-size-btn');
 gridChange.addEventListener('click', changeSize);
