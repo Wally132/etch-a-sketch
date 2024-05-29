@@ -27,7 +27,7 @@ function createGrid(size) {
     for (let j = 0; j < size; j++) {
         const column = document.createElement('div');
         column.classList.add('column');
-        row.appendChild(column); // Appends column divs to each row div.
+        row.appendChild(column); // Appends column divs inside each row div.
 
 // If/else for color mode - button function added at bottom - default is black when page is loaded.
         column.addEventListener('mouseover', () => {
